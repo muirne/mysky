@@ -41,7 +41,7 @@ export class Star extends Model {
     public name!: string;
     public description!: string;
     public imageLink!: string;
-    public constellationId!: number;
+    public constellationId?: number;
 
     public readonly constellation?: Constellation;
 }
@@ -67,7 +67,7 @@ Star.init(
         },
         constellationId: {
             type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: false,
+            allowNull: true,
             references: {
                 model: Constellation,
                 key: 'id',
@@ -80,8 +80,8 @@ Star.init(
     },
 );
 
-Star.sync().then((result) => console.log("The result: " + result));
 Constellation.sync().then((result) => console.log("The result: " + result));
+Star.sync().then((result) => console.log("The result: " + result));
 
 Constellation.hasMany(Star, { foreignKey: 'constellationId' });
 Star.belongsTo(Constellation, { foreignKey: 'constellationId' });

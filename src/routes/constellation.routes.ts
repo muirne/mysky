@@ -1,20 +1,20 @@
 import {Router, Request, Response} from 'express';
-import {Constellation, Star} from "../models/contellation";
+import {Constellation, Star} from "../models/models";
 
 const router = Router();
 
 router.get('/', async (req: Request, res: Response) => {
     const result = await Constellation.findAll({
-        include: [{ model: Star, as: 'stars' }],
+        include: [{model: Star}],
     });
     res.status(200).json({constellation: result});
 });
 
 router.get('/:id', async (req: Request, res: Response) => {
-    
+
     const id = Number(req.params.id);
     const result = await Constellation.findByPk(id, {
-        include: [{ model: Star, as: 'stars' }],
+        include: [{model: Star}],
     });
     res.status(200).json({constellation: result});
 });

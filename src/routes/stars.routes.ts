@@ -1,5 +1,5 @@
 import {Router, Request, Response} from 'express';
-import {Star} from "../models/contellation";
+import {Star} from "../models/models";
 
 const router = Router();
 
