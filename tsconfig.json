@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "nodenext",  
     "moduleResolution": "node",
     "pretty": true,
     "target": "es6",
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*.ts"
   ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+},
+  
   "exclude": [
     "node_modules"
   ]

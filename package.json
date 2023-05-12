@@ -2,10 +2,11 @@
   "name": "sky-managament",
   "version": "1.0.0",
   "description": "",
+  
   "main": "./dist/server.js",
   "scripts": {
+    "dev": "ts-node --esm ./src/server.ts",
     "test": "ts-node ./src/server.ts",
-    "dev": "tsc && nodemon ./dist/server.js",
     "prod": "tsc && nodemon ./dist/server.js"
   },
   "keywords": [],
